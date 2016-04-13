@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category Scandi
+ * @package Scandi\Core
+ * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::all" title="Allow everything" sortOrder="10" />
+            <resource id="Magento_Backend::admin" title="Magento Admin" sortOrder="20">
+                <resource id="Scandi_Core::all" title="Scandiweb" sortOrder="0" />
+            </resource>
+        </resources>
+    </acl>
+</config>

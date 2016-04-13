@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category Scandi
+ * @package Scandi\Menumanager
+ * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="scandi_menumanager" class="Scandi\Menumanager\Block\Widget\Menu">
+        <label translate="true">Scandi Menumanager Menu</label>
+        <description translate="true">Allows to display customly created menu as widget</description>
+        <parameters>
+            <parameter xsi:type="select" name="menu_id" visible="true" source_model="Scandi\Menumanager\Model\ResourceModel\Menu\Collection">
+                <label translate="true">Menu to display</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
+

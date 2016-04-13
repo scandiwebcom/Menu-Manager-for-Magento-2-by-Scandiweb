@@ -1,0 +1,45 @@
+<?php
+/**
+ * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * @var $block \Scandi\Menumanager\Block\Adminhtml\Menu\Edit\Tab\Item
+ */
+?>
+<div class="entry-edit">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Assigned Menu Items')?></span></legend>
+        <br />
+        <?php if ($this->canShowItemGrid()): ?>
+            <div class="new-item-link no-display">
+                <a id="add-new-item" class="edit-menu-item" href="<?php echo $block->getNewItemUrl(); ?>"><?php echo __('Add New Item'); ?></a>
+            </div>
+            <div id="regular-category-settings" class="regular-category-settings">
+                <div class="actions">
+                    <?php echo $block->getChildHtml('add_items_button') ?>
+                </div>
+                <a href="<?php echo $block->getUrl(); ?>"></a>
+            </div>
+
+            <?php echo $block->getChildHtml('scandi_menumanager_item_grid'); ?>
+        <?php else: ?>
+            <div class="messages">
+                <div class="message message-notice">
+                    <div><?php /* @escapeNotVerified */ echo __('To create and assign new items, please save menu first.') ?></div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </fieldset>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Scandi_Menumanager/item-actions-handler": {}
+        }
+    }
+</script>
