@@ -185,6 +185,10 @@ class Menu extends Template implements IdentityInterface
         $itemPositionClassPrefix = $parentPositionClass ? $parentPositionClass . '-' : 'nav-';
 
         foreach ($children as $child) {
+            if (!$this->_isMenuItemActive($child)) {
+                continue;
+            }
+
             $this->_generateFinalUrl($child);
 
             $child->setLevel($childLevel);
@@ -355,6 +359,10 @@ class Menu extends Template implements IdentityInterface
 
         if ($item->hasChildren()) {
             foreach ($item->getChildren() as $child) {
+                if (!$this->_isMenuItemActive($child)) {
+                    continue;
+                }
+
                 $this->_generateFinalUrl($child);
 
                 if ($this->_hasCurrentUrl($child)) {
@@ -570,8 +578,9 @@ class Menu extends Template implements IdentityInterface
 
         foreach ($categoryItemIds as $itemId => $categoryId) {
             $item = $nodes[$itemId];
+            $itemCategoryId = $item->getCategoryId();
 
-            if ($itemCategoryId = $item->getCategoryId()) {
+            if ($itemCategoryId && isset($categoryArray[$itemCategoryId])) {
                 $item->setCategory($categoryArray[$itemCategoryId]);
             }
         }
@@ -645,5 +654,19 @@ class Menu extends Template implements IdentityInterface
         $storesToFilter[] = $this->_storeManager->getStore()->getId();
 
         return $storesToFilter;
+    }
+
+    /**
+     * @param $item
+     *
+     * @return boolean
+     */
+    protected function _isMenuItemActive($item)
+    {
+        if ((int) $item->getUrlType() === 2 && !$item->getCategory()) {
+            return false;
+        }
+
+        return true;
     }
 }

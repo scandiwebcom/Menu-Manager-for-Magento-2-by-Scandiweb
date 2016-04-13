@@ -33,7 +33,7 @@ class Save extends \Magento\Backend\App\Action
             /** @var \Scandi\Menumanager\Model\Item $model */
             $model = $this->_objectManager->create('Scandi\Menumanager\Model\Item');
 
-            if ($id = $this->getRequest()->getParam('item_id')) {
+            if ($id = $this->getRequest()->getParam('item_id', false)) {
                 $model->load($id);
             }
 

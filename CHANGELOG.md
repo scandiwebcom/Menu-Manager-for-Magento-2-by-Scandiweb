@@ -1,6 +1,9 @@
 Scandi_Menumanager changelog
 ========================
 
+0.1.1:
+- Fixed menu item output when disabled category was assigned
+
 0.1.0:
 - added install schema for menu / menu items / menu-store mapping
 - added CRUD functionality for menus

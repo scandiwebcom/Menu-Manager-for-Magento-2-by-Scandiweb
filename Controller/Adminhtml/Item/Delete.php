@@ -6,7 +6,7 @@ use Magento\TestFramework\ErrorLog\Logger;
 
 /**
  * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Menu
+ * @package Scandi\Menumanager\Controller\Adminhtml\Item
  * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
@@ -26,11 +26,11 @@ class Delete extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
-        $id = $this->getRequest()->getParam('item_id');
+        $id = $this->getRequest()->getParam('item_id', false);
         $params = [];
 
         if ($id) {
-            /** @var \Scandi\Menumanager\Model\Menu $model */
+            /** @var \Scandi\Menumanager\Model\Item $model */
             $model = $this->_objectManager->create('Scandi\Menumanager\Model\Item');
 
             $model->load($id);
