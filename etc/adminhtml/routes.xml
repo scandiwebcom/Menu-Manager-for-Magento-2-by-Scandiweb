@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!--
 /**
- * @category Scandi
- * @package Scandi\Menumanager
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
-        <route id="scandi_menumanager" frontName="scandi_menumanager">
-            <module name="Scandi_Menumanager" before="Magento_Backend"/>
+        <route id="scandiweb_menumanager" frontName="scandiweb_menumanager">
+            <module name="Scandiweb_Menumanager" before="Magento_Backend"/>
         </route>
     </router>
 </config>

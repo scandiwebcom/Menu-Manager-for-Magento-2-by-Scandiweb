@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Menu;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Menu;
 
 use Magento\Framework\Controller\ResultFactory;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -14,7 +14,7 @@ use Magento\Framework\Controller\ResultFactory;
  */
 class MassStatus extends AbstractMassAction
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu_save';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu_save';
 
     /**
      * Item status
@@ -71,7 +71,7 @@ class MassStatus extends AbstractMassAction
      */
     protected function updateStatusForAll()
     {
-        /** @var \Scandi\Menumanager\Model\ResourceModel\Menu\Collection $collection */
+        /** @var \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection $collection */
         $collection = $this->_objectManager->get($this->collection);
         $this->setStatus($collection);
     }
@@ -85,7 +85,7 @@ class MassStatus extends AbstractMassAction
      */
     protected function updateStatusForSelected(array $selected)
     {
-        /** @var \Scandi\Menumanager\Model\ResourceModel\Menu\Collection $collection */
+        /** @var \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection $collection */
         $collection = $this->_objectManager->get($this->collection);
         $collection->addFieldToFilter(static::ID_FIELD, ['in' => $selected]);
         $this->setStatus($collection);
@@ -94,15 +94,15 @@ class MassStatus extends AbstractMassAction
     /**
      * Set status to collection items
      *
-     * @param \Scandi\Menumanager\Model\ResourceModel\Menu\Collection $collection
+     * @param \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection $collection
      * @return void
      */
-    protected function setStatus(\Scandi\Menumanager\Model\ResourceModel\Menu\Collection $collection)
+    protected function setStatus(\Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection $collection)
     {
         $count = 0;
 
         foreach ($collection as $menu) {
-            /** @var \Scandi\Menumanager\Model\Menu $menu */
+            /** @var \Scandiweb\Menumanager\Model\Menu $menu */
             $menu->setIsActive($this->status);
             $menu->save();
             ++$count;

@@ -1,13 +1,13 @@
 <?php
-namespace Scandi\Menumanager\Block\Adminhtml\Menu\Edit\Tab;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tab;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Backend\Block\Widget\Tab\TabInterface;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block\Adminhtml\Menu\Edit\Tab
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tab
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -67,11 +67,11 @@ class Item extends Generic implements TabInterface
     /**
      * Get current menu model
      *
-     * @return \Scandi\Menumanager\Model\Menu
+     * @return \Scandiweb\Menumanager\Model\Menu
      */
     public function getMenu()
     {
-        return $this->_coreRegistry->registry('scandi_menumanager_menu');
+        return $this->_coreRegistry->registry('scandiweb_menumanager_menu');
     }
 
     /**

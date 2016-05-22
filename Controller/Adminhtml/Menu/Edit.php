@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Menu;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Menu;
 
 use Magento\Backend\App\Action;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -14,7 +14,7 @@ use Magento\Backend\App\Action;
  */
 class Edit extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu_save';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu_save';
 
     /**
      * Core registry
@@ -53,7 +53,7 @@ class Edit extends \Magento\Backend\App\Action
         // load layout, set active menu and breadcrumbs
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Scandi_Menumanager::navigation_menu')
+        $resultPage->setActiveMenu('Scandiweb_Menumanager::navigation_menu')
             ->addBreadcrumb(__('Menu Manager'), __('Menu Manager'))
             ->addBreadcrumb(__('Manage Menus'), __('Manage Menus'));
 
@@ -69,7 +69,7 @@ class Edit extends \Magento\Backend\App\Action
     public function execute()
     {
         $id = $this->getRequest()->getParam('menu_id');
-        $model = $this->_objectManager->create('Scandi\Menumanager\Model\Menu');
+        $model = $this->_objectManager->create('Scandiweb\Menumanager\Model\Menu');
 
         if ($id) {
             $model->load($id);
@@ -89,7 +89,7 @@ class Edit extends \Magento\Backend\App\Action
             $model->setData($data);
         }
 
-        $this->_coreRegistry->register('scandi_menumanager_menu', $model);
+        $this->_coreRegistry->register('scandiweb_menumanager_menu', $model);
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_initAction();

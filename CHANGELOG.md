@@ -1,5 +1,8 @@
-Scandi_Menumanager changelog
+Scandiweb_Menumanager changelog
 ========================
+
+0.1.2:
+- Fixed filters for assigned menu item grid
 
 0.1.1:
 - Fixed menu item output when disabled category was assigned

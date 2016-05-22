@@ -1,10 +1,10 @@
 <?php
-namespace Scandi\Menumanager\Block\Adminhtml\Item;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Item;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -31,15 +31,15 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Backend\Helper\Data $backendHelper
-     * @param \Scandi\Menumanager\Model\ResourceModel\Item\Collection $itemCollection
+     * @param \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection $itemCollection
      * @param \Magento\Framework\Registry $registry
      * @param array $data
      */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
-        \Scandi\Menumanager\Model\ResourceModel\Item\Collection $itemCollection,
-        \Scandi\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
+        \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection $itemCollection,
+        \Scandiweb\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
         \Magento\Framework\Registry $registry,
         array $data = []
     ) {
@@ -47,7 +47,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
         $this->_menumanagerHelper = $menumanagerHelper;
         parent::__construct($context, $backendHelper, $data);
 
-        $itemCollection->joinParentNames();
+        $this->_applyItemCollectionFilters($itemCollection);
 
         $this->setCollection($itemCollection);
     }
@@ -60,7 +60,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     public function _construct()
     {
         parent::_construct();
-        $this->setId('scandi_menumanager_item_grid');
+        $this->setId('scandiweb_menumanager_item_grid');
         $this->setDefaultSort('item_id');
         $this->setDefaultDir('ASC');
         $this->setUseAjax(true);
@@ -91,7 +91,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'type' => 'text',
                 'index' => 'parent_title',
                 'escape' => true,
-                'renderer' => '\Scandi\Menumanager\Block\Adminhtml\Item\Renderer\Parentitem',
+                'renderer' => '\Scandiweb\Menumanager\Block\Adminhtml\Item\Renderer\Parentitem',
                 'filter' => false,
             ]
         );
@@ -193,22 +193,19 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     /**
      * Get current menu model
      *
-     * @return \Scandi\Menumanager\Model\Menu
+     * @return \Scandiweb\Menumanager\Model\Menu
      */
     protected function _getMenu()
     {
-        return $this->_registry->registry('scandi_menumanager_menu');
+        return $this->_registry->registry('scandiweb_menumanager_menu');
     }
 
     /**
-     * @return \Magento\Framework\Data\Collection
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @param \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection $itemCollection
      */
-    public function getAssignedItems()
+    protected function _applyItemCollectionFilters($itemCollection)
     {
-        $itemCollection = $this->getCollection();
+        $itemCollection->joinParentNames();
         $itemCollection->addFieldToFilter('main_table.menu_id', $this->_getMenu()->getId());
-
-        return $itemCollection;
     }
 }

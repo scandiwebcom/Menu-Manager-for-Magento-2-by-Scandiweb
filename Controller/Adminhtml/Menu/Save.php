@@ -1,13 +1,13 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Menu;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Menu;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -15,7 +15,7 @@ use Magento\TestFramework\ErrorLog\Logger;
  */
 class Save extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu_save';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu_save';
 
     /**
      * Save action
@@ -30,8 +30,8 @@ class Save extends \Magento\Backend\App\Action
         $resultRedirect = $this->resultRedirectFactory->create();
 
         if ($data && isset($data['menu'])) {
-            /** @var \Scandi\Menumanager\Model\Menu $model */
-            $model = $this->_objectManager->create('Scandi\Menumanager\Model\Menu');
+            /** @var \Scandiweb\Menumanager\Model\Menu $model */
+            $model = $this->_objectManager->create('Scandiweb\Menumanager\Model\Menu');
 
             if ($id = $this->getRequest()->getParam('menu_id')) {
                 $model->load($id);
@@ -40,7 +40,7 @@ class Save extends \Magento\Backend\App\Action
             $model->addData($data['menu']);
 
             $this->_eventManager->dispatch(
-                'scandi_menumanager_menu_prepare_save',
+                'scandiweb_menumanager_menu_prepare_save',
                 ['menu' => $model, 'request' => $this->getRequest()]
             );
 

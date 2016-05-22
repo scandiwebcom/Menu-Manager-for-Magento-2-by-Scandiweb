@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Model\ResourceModel\Item;
+namespace Scandiweb\Menumanager\Model\ResourceModel\Item;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model\ResourceModel\Item
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model\ResourceModel\Item
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -21,7 +21,7 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init('Scandi\Menumanager\Model\Item', 'Scandi\Menumanager\Model\ResourceModel\Item');
+        $this->_init('Scandiweb\Menumanager\Model\Item', 'Scandiweb\Menumanager\Model\ResourceModel\Item');
     }
 
     /**
@@ -32,7 +32,7 @@ class Collection extends AbstractCollection
         $select = $this->getSelect();
 
         $select->joinLeft(
-            ['item_table' => $this->getTable('scandi_menumanager_item')],
+            ['item_table' => $this->getTable('scandiweb_menumanager_item')],
             'main_table.parent_id = item_table.item_id',
             ['parent_title' => 'title']
         )->order('main_table.item_id ASC');
@@ -43,12 +43,12 @@ class Collection extends AbstractCollection
     /**
      * Add menu filter to item collection
      *
-     * @param   int | \Scandi\Menumanager\Model\Menu $menu
-     * @return  \Scandi\Menumanager\Model\ResourceModel\Item\Collection
+     * @param   int | \Scandiweb\Menumanager\Model\Menu $menu
+     * @return  \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
      */
     public function addMenuFilter($menu)
     {
-        if ($menu instanceof \Scandi\Menumanager\Model\Menu) {
+        if ($menu instanceof \Scandiweb\Menumanager\Model\Menu) {
             $menu = $menu->getId();
         }
 
@@ -60,7 +60,7 @@ class Collection extends AbstractCollection
     /**
      * Add status filter to item collection
      *
-     * @return \Scandi\Menumanager\Model\ResourceModel\Item\Collection
+     * @return \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
      */
     public function addStatusFilter()
     {
@@ -72,7 +72,7 @@ class Collection extends AbstractCollection
     /**
      * Set order to item collection
      *
-     * @return \Scandi\Menumanager\Model\ResourceModel\Item\Collection
+     * @return \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
      */
     public function setPositionOrder()
     {

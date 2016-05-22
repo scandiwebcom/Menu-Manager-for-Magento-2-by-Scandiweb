@@ -3,7 +3,7 @@
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Scandi\Menumanager\Block\Adminhtml\Item\Renderer;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Item\Renderer;
 
 /**
  * Adminhtml parent item renderer
@@ -14,12 +14,12 @@ class Parentitem extends \Magento\Backend\Block\Widget\Grid\Column\Renderer\Abst
 {
     /**
      * @param \Magento\Backend\Block\Context $context
-     * @param \Scandi\Menumanager\Model\ItemFactory $itemFactory
+     * @param \Scandiweb\Menumanager\Model\ItemFactory $itemFactory
      * @param array $data
      */
     public function __construct(
         \Magento\Backend\Block\Context $context,
-        \Scandi\Menumanager\Model\ItemFactory $itemFactory,
+        \Scandiweb\Menumanager\Model\ItemFactory $itemFactory,
         array $data = []
     ) {
         $this->_itemFactory = $itemFactory;

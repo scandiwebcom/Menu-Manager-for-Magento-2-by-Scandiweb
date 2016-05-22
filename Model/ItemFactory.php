@@ -1,5 +1,5 @@
 <?php
-namespace Scandi\Menumanager\Model;
+namespace Scandiweb\Menumanager\Model;
 
 /**
  * Factory class for @see \Magento\Cms\Model\Page
@@ -26,7 +26,7 @@ class ItemFactory
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
      * @param string $instanceName
      */
-    public function __construct(\Magento\Framework\ObjectManagerInterface $objectManager, $instanceName = '\\Scandi\\Menumanager\\Model\\Item')
+    public function __construct(\Magento\Framework\ObjectManagerInterface $objectManager, $instanceName = '\\Scandiweb\\Menumanager\\Model\\Item')
     {
         $this->_objectManager = $objectManager;
         $this->_instanceName = $instanceName;

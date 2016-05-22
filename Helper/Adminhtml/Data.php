@@ -1,5 +1,5 @@
 <?php
-namespace Scandi\Menumanager\Helper\Adminhtml;
+namespace Scandiweb\Menumanager\Helper\Adminhtml;
 
 use Magento\Backend\App\ConfigInterface;
 use Magento\Captcha\Model\CaptchaFactory;
@@ -9,9 +9,9 @@ use Magento\Framework\Registry;
 use Magento\Store\Model\StoreManager;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Helper\Adminhtml
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Helper\Adminhtml
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -47,7 +47,7 @@ class Data extends \Magento\Captcha\Helper\Data
     protected $_categoryCollectionClass = \Magento\Catalog\Model\ResourceModel\Category\Collection::class;
 
     protected $_menuCollection;
-    protected $_menuCollectionClass = \Scandi\Menumanager\Model\ResourceModel\Menu\Collection::class;
+    protected $_menuCollectionClass = \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection::class;
 
     protected $_pageCollection;
     protected $_pageCollectionClass = \Magento\Cms\Model\ResourceModel\Page\Collection::class;
@@ -245,7 +245,7 @@ class Data extends \Magento\Captcha\Helper\Data
 
     /**
      * Prepare menu's statuses.
-     * Available event scandi_menumanager_menu_get_available_statuses to customize statuses.
+     * Available event scandiweb_menumanager_menu_get_available_statuses to customize statuses.
      *
      * @return array
      */
@@ -289,20 +289,20 @@ class Data extends \Magento\Captcha\Helper\Data
      *
      * @param string $idFieldName
      *
-     * @return \Scandi\Menumanager\Model\Menu $model
+     * @return \Scandiweb\Menumanager\Model\Menu $model
      */
     public function initMenu($idFieldName = 'menu_id')
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
-        $model = $objectManager->create('Scandi\Menumanager\Model\Menu');
+        $model = $objectManager->create('Scandiweb\Menumanager\Model\Menu');
 
-        if ($menuId = (int)$this->_getRequest()->getParam($idFieldName)) {
+        if ($menuId = (int)$this->_getRequest()->getParam($idFieldName, false)) {
             $model->load($menuId);
         }
 
-        if (!$this->_coreRegistry->registry('scandi_menumanager_menu')) {
-            $this->_coreRegistry->register('scandi_menumanager_menu', $model);
+        if (!$this->_coreRegistry->registry('scandiweb_menumanager_menu')) {
+            $this->_coreRegistry->register('scandiweb_menumanager_menu', $model);
         }
 
         return $model;
@@ -317,19 +317,19 @@ class Data extends \Magento\Captcha\Helper\Data
      */
     public function initItem($idFieldName = 'item_id')
     {
-        if ($registryItem = $this->_coreRegistry->registry('scandi_menumanager_item')) {
+        if ($registryItem = $this->_coreRegistry->registry('scandiweb_menumanager_item')) {
             return $registryItem;
         }
 
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
-        $model = $objectManager->create('Scandi\Menumanager\Model\Item');
+        $model = $objectManager->create('Scandiweb\Menumanager\Model\Item');
 
         if ($menuId = (int)$this->_getRequest()->getParam($idFieldName)) {
             $model->load($menuId);
         }
 
-        $this->_coreRegistry->register('scandi_menumanager_item', $model);
+        $this->_coreRegistry->register('scandiweb_menumanager_item', $model);
 
         return $model;
     }

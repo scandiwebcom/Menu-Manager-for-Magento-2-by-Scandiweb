@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
- * @category Scandi
- * @package Scandi\Menumanager
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  */
@@ -11,10 +11,10 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus_data_source</item>
-            <item name="deps" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus_data_source</item>
+            <item name="provider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus_data_source</item>
+            <item name="deps" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus_data_source</item>
         </item>
-        <item name="spinner" xsi:type="string">scandi_menumanager_menu_columns</item>
+        <item name="spinner" xsi:type="string">scandiweb_menumanager_menu_columns</item>
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
@@ -25,10 +25,10 @@
         </item>
     </argument>
 
-    <dataSource name="scandi_menumanager_menus_data_source">
+    <dataSource name="scandiweb_menumanager_menus_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">MenuGridDataProvider</argument>
-            <argument name="name" xsi:type="string">scandi_menumanager_menus_data_source</argument>
+            <argument name="name" xsi:type="string">scandiweb_menumanager_menus_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">menu_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -59,7 +59,7 @@
                     <item name="storageConfig" xsi:type="array">
                         <item name="saveUrl" xsi:type="url" path="mui/bookmark/save"/>
                         <item name="deleteUrl" xsi:type="url" path="mui/bookmark/delete"/>
-                        <item name="namespace" xsi:type="string">scandi_menumanager_menus</item>
+                        <item name="namespace" xsi:type="string">scandiweb_menumanager_menus</item>
                     </item>
                 </item>
             </argument>
@@ -69,7 +69,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="columnsData" xsi:type="array">
-                        <item name="provider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.scandi_menumanager_menu_columns</item>
+                        <item name="provider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.scandiweb_menumanager_menu_columns</item>
                     </item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                     <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -80,7 +80,7 @@
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.scandi_menumanager_menu_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.scandiweb_menumanager_menu_columns.ids</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
                     <item name="displayArea" xsi:type="string">bottom</item>
                     <item name="indexField" xsi:type="string">menu_id</item>
@@ -96,7 +96,7 @@
                         </item>
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="scandi_menumanager/menu/massDelete"/>
+                        <item name="url" xsi:type="url" path="scandiweb_menumanager/menu/massDelete"/>
                     </item>
                 </argument>
             </action>
@@ -112,14 +112,14 @@
                     <item name="0" xsi:type="array">
                         <item name="type" xsi:type="string">enable</item>
                         <item name="label" xsi:type="string" translate="true">Enable</item>
-                        <item name="url" xsi:type="url" path="scandi_menumanager/menu/massStatus">
+                        <item name="url" xsi:type="url" path="scandiweb_menumanager/menu/massStatus">
                             <param name="status">1</param>
                         </item>
                     </item>
                     <item name="1" xsi:type="array">
                         <item name="type" xsi:type="string">disable</item>
                         <item name="label" xsi:type="string" translate="true">Disable</item>
-                        <item name="url" xsi:type="url" path="scandi_menumanager/menu/massStatus">
+                        <item name="url" xsi:type="url" path="scandiweb_menumanager/menu/massStatus">
                             <param name="status">0</param>
                         </item>
                     </item>
@@ -131,25 +131,25 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                    <item name="selectProvider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.scandi_menumanager_menu_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.scandiweb_menumanager_menu_columns.ids</item>
                 </item>
             </argument>
         </paging>
     </container>
 
-    <columns name="scandi_menumanager_menu_columns">
+    <columns name="scandiweb_menumanager_menu_columns">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="storageConfig" xsi:type="array">
-                    <item name="provider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.listing_top.bookmarks</item>
+                    <item name="provider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.scandi_menumanager_menu_columns.actions</item>
+                        <item name="provider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.scandiweb_menumanager_menu_columns.actions</item>
                         <item name="target" xsi:type="string">applyAction</item>
                         <item name="params" xsi:type="array">
                             <item name="0" xsi:type="string">edit</item>
@@ -158,7 +158,7 @@
                     </item>
                     <item name="controlVisibility" xsi:type="boolean">true</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">scandi_menumanager_menus.scandi_menumanager_menus.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">scandiweb_menumanager_menus.scandiweb_menumanager_menus.listing_top.bookmarks</item>
                         <item name="root" xsi:type="string">columns.${ $.index }</item>
                         <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
                     </item>
@@ -250,7 +250,7 @@
 
         <column name="is_active">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Scandi\Menumanager\Model\Menu\Source\IsActive</item>
+                <item name="options" xsi:type="object">Scandiweb\Menumanager\Model\Menu\Source\IsActive</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
@@ -262,7 +262,7 @@
             </argument>
         </column>
 
-        <actionsColumn name="actions" class="Scandi\Menumanager\Ui\Component\Listing\Column\MenuActions">
+        <actionsColumn name="actions" class="Scandiweb\Menumanager\Ui\Component\Listing\Column\MenuActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>

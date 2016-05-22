@@ -27,7 +27,7 @@ define([
          * Constructor component
          * @param {Object} data - this backend data
          */
-        'Scandi_Menumanager/item-actions-handler': function (data) {
+        'Scandiweb_Menumanager/item-actions-handler': function (data) {
             this.initActions();
         },
 

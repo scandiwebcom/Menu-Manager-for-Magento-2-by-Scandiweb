@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!--
 /**
- * @category Scandi
- * @package Scandi\Menumanager
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Scandi\Menumanager\Api\Data\MenuInterface" type="Scandi\Menumanager\Model\Menu" />
+    <preference for="Scandiweb\Menumanager\Api\Data\MenuInterface" type="Scandiweb\Menumanager\Model\Menu" />
 
     <virtualType name="MenuGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
         <arguments>
@@ -22,22 +22,22 @@
 
     <virtualType name="MenuGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="collection" xsi:type="object" shared="false">Scandi\Menumanager\Model\Resource\Menu\Collection</argument>
+            <argument name="collection" xsi:type="object" shared="false">Scandiweb\Menumanager\Model\Resource\Menu\Collection</argument>
             <argument name="filterPool" xsi:type="object" shared="false">MenuGridFilterPool</argument>
         </arguments>
     </virtualType>
 
-    <virtualType name="Scandi\Menumanager\Model\ResourceModel\Menu\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Scandiweb\Menumanager\Model\ResourceModel\Menu\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">scandi_menumanager_menu</argument>
-            <argument name="resourceModel" xsi:type="string">Scandi\Menumanager\Model\ResourceModel\Menu</argument>
+            <argument name="mainTable" xsi:type="string">scandiweb_menumanager_menu</argument>
+            <argument name="resourceModel" xsi:type="string">Scandiweb\Menumanager\Model\ResourceModel\Menu</argument>
         </arguments>
     </virtualType>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="scandi_menumanager_menus_data_source" xsi:type="string">Scandi\Menumanager\Model\ResourceModel\Menu\Grid\Collection</item>
+                <item name="scandiweb_menumanager_menus_data_source" xsi:type="string">Scandiweb\Menumanager\Model\ResourceModel\Menu\Grid\Collection</item>
             </argument>
         </arguments>
     </type>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?><!--
+/**
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+-->
+<page layout="admin-2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="left">
+            <block class="Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tabs" name="scandiweb_menumanager_menu_edit_tabs">
+                <block class="Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tab\General" name="scandiweb_menumanager_menu_edit_tab_general"/>
+
+                <block class="Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tab\Item" name="scandiweb_menumanager_menu_edit_tab_item" template="Scandiweb_Menumanager::edit/tab/item.phtml">
+                    <block class="Scandiweb\Menumanager\Block\Adminhtml\Item\Grid" name="scandiweb_menumanager_item_grid"/>
+                    <block class="Magento\Backend\Block\Widget\Button" name="scandiweb_menumanager.add_items_button" as="add_items_button">
+                        <arguments>
+                            <argument name="id" xsi:type="string">scandiweb_menumanager_add_item</argument>
+                            <argument name="label" translate="true" xsi:type="string">Add Item</argument>
+                            <argument name="class" xsi:type="string">secondary edit-menu-item</argument>
+                            <argument name="onclick" xsi:type="string">jQuery('#add-new-item').click(); return false;</argument>
+                        </arguments>
+                    </block>
+                </block>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general_section</argument>
+                    <argument name="block" xsi:type="string">scandiweb_menumanager_menu_edit_tab_general</argument>
+                </action>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">item_section</argument>
+                    <argument name="block" xsi:type="string">scandiweb_menumanager_menu_edit_tab_item</argument>
+                </action>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="content">
+            <block class="Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit" name="scandiweb_menumanager_menu_edit"/>
+        </referenceContainer>
+    </body>
+</page>

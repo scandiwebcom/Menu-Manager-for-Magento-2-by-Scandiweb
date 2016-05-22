@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Model\ResourceModel;
+namespace Scandiweb\Menumanager\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model\ResourceModel
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model\ResourceModel
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -36,7 +36,7 @@ class Item extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('scandi_menumanager_item', 'item_id');
+        $this->_init('scandiweb_menumanager_item', 'item_id');
     }
 
     /**
@@ -93,7 +93,7 @@ class Item extends AbstractDb
      *
      * @param string $field
      * @param mixed $value
-     * @param \Scandi\Menumanager\Model\Menu $object
+     * @param \Scandiweb\Menumanager\Model\Menu $object
      *
      * @return \Zend_Db_Select
      */
@@ -119,7 +119,7 @@ class Item extends AbstractDb
     protected function _getMenuSelect($menuId)
     {
         $select = $this->getConnection()->select()->from(
-            ['menus' => $this->getTable('scandi_menumanager_menu')]
+            ['menus' => $this->getTable('scandiweb_menumanager_menu')]
         )->where(
             'menus.menu_id = ?',
             $menuId

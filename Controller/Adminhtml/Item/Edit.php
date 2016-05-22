@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Item;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Item;
 
 use Magento\Backend\App\Action;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Item
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Item
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -14,7 +14,7 @@ use Magento\Backend\App\Action;
  */
 class Edit extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu_item_save';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu_item_save';
 
     /**
      * @var \Magento\Framework\View\Result\LayoutFactory
@@ -57,7 +57,7 @@ class Edit extends \Magento\Backend\App\Action
         }
 
         $itemId = $this->getRequest()->getParam('item_id');
-        $item = $this->_objectManager->create('Scandi\Menumanager\Model\Item');
+        $item = $this->_objectManager->create('Scandiweb\Menumanager\Model\Item');
 
         if ($itemId) {
             $item->load($itemId);
@@ -76,20 +76,20 @@ class Edit extends \Magento\Backend\App\Action
             $item->setData($data);
         }
 
-        $this->_registry->register('scandi_menumanager_item', $item);
+        $this->_registry->register('scandiweb_menumanager_item', $item);
 
         $resultLayout = $this->resultLayoutFactory->create();
-        $resultLayout->getLayout()->getBlock('scandi_menumanager_item_edit');
+        $resultLayout->getLayout()->getBlock('scandiweb_menumanager_item_edit');
 
         return $resultLayout;
     }
 
     /**
-     * @param \Scandi\Menumanager\Model\Item $item
+     * @param \Scandiweb\Menumanager\Model\Item $item
      *
      * @return bool
      */
-    protected function _validateMenu(\Scandi\Menumanager\Model\Item $item)
+    protected function _validateMenu(\Scandiweb\Menumanager\Model\Item $item)
     {
         $menuId = $this->getRequest()->getParam('menu_id');
 
@@ -103,11 +103,11 @@ class Edit extends \Magento\Backend\App\Action
     }
 
     /**
-     * @param \Scandi\Menumanager\Model\Item $item
+     * @param \Scandiweb\Menumanager\Model\Item $item
      *
      * @return bool
      */
-    protected function _validateItem(\Scandi\Menumanager\Model\Item $item)
+    protected function _validateItem(\Scandiweb\Menumanager\Model\Item $item)
     {
         if (!$item->getId()) {
             $this->messageManager->addError(__('This item no longer exists.'));

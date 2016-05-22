@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Block\Adminhtml\Item\Edit;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Item\Edit;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -38,7 +38,7 @@ class Form extends Generic
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Store\Model\System\Store $systemStore,
-        \Scandi\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
+        \Scandiweb\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
         \Magento\Framework\Json\EncoderInterface $jsonEncoder,
         array $data = []
     ) {
@@ -60,7 +60,7 @@ class Form extends Generic
         $saveUrl = $this->getUrl('*/item/save', ['_current' => true, 'active_tab' => 'item_section']);
 
         $this->setFormActionUrl($saveUrl);
-        $this->setId('scandi_menumanager_item_form');
+        $this->setId('scandiweb_menumanager_item_form');
         $this->setDestElementId('item_form');
         $this->setTitle(__('Item Information'));
     }
@@ -72,7 +72,7 @@ class Form extends Generic
      */
     protected function _prepareForm()
     {
-        /** @var \Scandi\Menumanager\Model\Item $item */
+        /** @var \Scandiweb\Menumanager\Model\Item $item */
         $item = $this->_menumanagerHelper->initItem();
         $menuId = $this->getRequest()->getParam('menu_id', null);
 
@@ -186,7 +186,7 @@ class Form extends Generic
 
         if (!$item->getId()) {
             $item->setData('menu_id', $menuId);
-            $item->setData('is_active', \Scandi\Menumanager\Helper\Adminhtml\Data::STATUS_ENABLED);
+            $item->setData('is_active', \Scandiweb\Menumanager\Helper\Adminhtml\Data::STATUS_ENABLED);
         }
 
         $form->setValues($item->getData());

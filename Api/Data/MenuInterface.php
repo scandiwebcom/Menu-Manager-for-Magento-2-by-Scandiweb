@@ -1,10 +1,10 @@
 <?php
-namespace Scandi\Menumanager\Api\Data;
+namespace Scandiweb\Menumanager\Api\Data;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Api\Data
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Api\Data
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -68,7 +68,7 @@ interface MenuInterface
      * Set ID
      *
      * @param int $id
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setId($id);
 
@@ -76,7 +76,7 @@ interface MenuInterface
      * Set identifier
      *
      * @param string $identifier
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setIdentifier($identifier);
 
@@ -84,7 +84,7 @@ interface MenuInterface
      * Set title
      *
      * @param string $title
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setTitle($title);
 
@@ -92,7 +92,7 @@ interface MenuInterface
      * Set menu type
      *
      * @param string $type
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setType($type);
 
@@ -100,7 +100,7 @@ interface MenuInterface
      * Set menu css class
      *
      * @param string $class
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setCssClass($class);
 
@@ -108,7 +108,7 @@ interface MenuInterface
      * Set is active
      *
      * @param int|bool $isActive
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setIsActive($isActive);
 }

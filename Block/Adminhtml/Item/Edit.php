@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Block\Adminhtml\Item;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Item;
 
 use Magento\Backend\Block\Widget\Form\Container;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block\Adminhtml\Item
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block\Adminhtml\Item
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -43,7 +43,7 @@ class Edit extends Container
     protected function _construct()
     {
         $this->_objectId = 'item_id';
-        $this->_blockGroup = 'Scandi_Menumanager';
+        $this->_blockGroup = 'Scandiweb_Menumanager';
         $this->_controller = 'adminhtml_item';
 
         $saveUrl = $this->getUrl('*/item/save', ['_current' => true, 'active_tab' => 'item_section']);
@@ -59,7 +59,7 @@ class Edit extends Container
      */
     public function getHeaderText()
     {
-        $menu = $this->_coreRegistry->registry('scandi_menumanager_item');
+        $menu = $this->_coreRegistry->registry('scandiweb_menumanager_item');
 
         if ($menu->getId()) {
             return __("Edit Menu Item '%1'", $this->escapeHtml($menu->getTitle()));

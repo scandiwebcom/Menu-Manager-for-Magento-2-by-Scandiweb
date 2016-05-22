@@ -1,15 +1,15 @@
 <?php
 
-namespace Scandi\Menumanager\Model;
+namespace Scandiweb\Menumanager\Model;
 
-use Scandi\Menumanager\Api\Data\ItemInterface;
+use Scandiweb\Menumanager\Api\Data\ItemInterface;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -20,19 +20,19 @@ class Item extends AbstractModel implements ItemInterface, IdentityInterface
     /**
      * CMS page cache tag
      */
-    const CACHE_TAG = 'scandi_menumanager_item';
+    const CACHE_TAG = 'scandiweb_menumanager_item';
 
     /**
      * @var string
      */
-    protected $_cacheTag = 'scandi_menumanager_item';
+    protected $_cacheTag = 'scandiweb_menumanager_item';
 
     /**
      * Prefix of model events names
      *
      * @var string
      */
-    protected $_eventPrefix = 'scandi_menumanager_item';
+    protected $_eventPrefix = 'scandiweb_menumanager_item';
 
     /**
      * Initialize resource model
@@ -41,7 +41,7 @@ class Item extends AbstractModel implements ItemInterface, IdentityInterface
      */
     protected function _construct()
     {
-        $this->_init('Scandi\Menumanager\Model\ResourceModel\Item');
+        $this->_init('Scandiweb\Menumanager\Model\ResourceModel\Item');
     }
 
     /**

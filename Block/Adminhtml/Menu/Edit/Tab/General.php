@@ -1,13 +1,13 @@
 <?php
-namespace Scandi\Menumanager\Block\Adminhtml\Menu\Edit\Tab;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tab;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 use Magento\Backend\Block\Widget\Tab\TabInterface;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block\Adminhtml\Menu\Edit\Tab
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block\Adminhtml\Menu\Edit\Tab
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -34,7 +34,7 @@ class General extends Generic implements TabInterface
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Store\Model\System\Store $systemStore,
-        \Scandi\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
+        \Scandiweb\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
         array $data = []
     ) {
         $this->_systemStore = $systemStore;
@@ -49,8 +49,8 @@ class General extends Generic implements TabInterface
      */
     protected function _prepareForm()
     {
-        /** @var \Scandi\Menumanager\Model\Menu $model */
-        $model = $this->_coreRegistry->registry('scandi_menumanager_menu');
+        /** @var \Scandiweb\Menumanager\Model\Menu $model */
+        $model = $this->_coreRegistry->registry('scandiweb_menumanager_menu');
 
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create(
@@ -119,10 +119,10 @@ class General extends Generic implements TabInterface
         $this->_addStoreRenderer($fieldset);
 
         if (!$model->getId()) {
-            $model->setData('is_active', \Scandi\Menumanager\Helper\Adminhtml\Data::STATUS_ENABLED);
+            $model->setData('is_active', \Scandiweb\Menumanager\Helper\Adminhtml\Data::STATUS_ENABLED);
         }
 
-        $this->_eventManager->dispatch('scandi_menumanager_menu_edit_tab_general_prepare_form', ['form' => $form]);
+        $this->_eventManager->dispatch('scandiweb_menumanager_menu_edit_tab_general_prepare_form', ['form' => $form]);
 
         $form->setValues($model->getData());
         $this->setForm($form);
@@ -139,8 +139,8 @@ class General extends Generic implements TabInterface
      */
     protected function _addStoreRenderer(\Magento\Framework\Data\Form\Element\Fieldset $fieldset)
     {
-        /** @var \Scandi\Menumanager\Model\Menu $model */
-        $model = $this->_coreRegistry->registry('scandi_menumanager_menu');
+        /** @var \Scandiweb\Menumanager\Model\Menu $model */
+        $model = $this->_coreRegistry->registry('scandiweb_menumanager_menu');
 
         if (!$this->_storeManager->isSingleStoreMode()) {
             $field = $fieldset->addField(

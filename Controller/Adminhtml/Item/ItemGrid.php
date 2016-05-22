@@ -1,10 +1,10 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Item;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Item;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Item
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Item
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -12,7 +12,7 @@ namespace Scandi\Menumanager\Controller\Adminhtml\Item;
  */
 class ItemGrid extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu';
 
     /**
      * @var \Magento\Framework\View\Result\LayoutFactory
@@ -35,7 +35,7 @@ class ItemGrid extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $registry,
-        \Scandi\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
+        \Scandiweb\Menumanager\Helper\Adminhtml\Data $menumanagerHelper,
         \Magento\Framework\View\Result\LayoutFactory $resultLayoutFactory
     )
     {
@@ -57,7 +57,7 @@ class ItemGrid extends \Magento\Backend\App\Action
             return $this->_redirect('*/menu/index');
         }
 
-        $menuId = $this->getRequest()->getParam('menu_id');
+        $menuId = $this->getRequest()->getParam('menu_id', false);
         $model = $this->_menumanagerHelper->initMenu();
 
         if (!$model->getId() && $menuId) {
@@ -67,7 +67,7 @@ class ItemGrid extends \Magento\Backend\App\Action
         }
 
         $resultLayout = $this->resultLayoutFactory->create();
-        $resultLayout->getLayout()->getBlock('scandi_menumanager_item_grid');
+        $resultLayout->getLayout()->getBlock('scandiweb_menumanager_item_grid');
 
         return $resultLayout;
     }

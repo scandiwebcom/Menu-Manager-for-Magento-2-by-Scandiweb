@@ -1,14 +1,14 @@
 <?php
 
-namespace Scandi\Menumanager\Model;
+namespace Scandiweb\Menumanager\Model;
 
-use Scandi\Menumanager\Api\Data\MenuInterface;
+use Scandiweb\Menumanager\Api\Data\MenuInterface;
 use Magento\Framework\DataObject\IdentityInterface;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -19,19 +19,19 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
     /**
      * CMS page cache tag
      */
-    const CACHE_TAG = 'scandi_menumanager_menu';
+    const CACHE_TAG = 'scandiweb_menumanager_menu';
 
     /**
      * @var string
      */
-    protected $_cacheTag = 'scandi_menumanager_menu';
+    protected $_cacheTag = 'scandiweb_menumanager_menu';
 
     /**
      * Prefix of model events names
      *
      * @var string
      */
-    protected $_eventPrefix = 'scandi_menumanager_menu';
+    protected $_eventPrefix = 'scandiweb_menumanager_menu';
 
     /**
      * Initialize resource model
@@ -40,7 +40,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
      */
     protected function _construct()
     {
-        $this->_init('Scandi\Menumanager\Model\ResourceModel\Menu');
+        $this->_init('Scandiweb\Menumanager\Model\ResourceModel\Menu');
     }
 
     /**
@@ -107,7 +107,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
      * Set ID
      *
      * @param int $id
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setId($id)
     {
@@ -118,7 +118,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
      * Set URL Key
      *
      * @param string $identifier
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setIdentifier($identifier)
     {
@@ -129,7 +129,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
      * Set title
      *
      * @param string $title
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setTitle($title)
     {
@@ -140,7 +140,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
      * Set menu type
      *
      * @param string $type
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setType($type)
     {
@@ -149,7 +149,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
 
     /**
      * @param string $class
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setCssClass($class)
     {
@@ -160,7 +160,7 @@ class Menu extends \Magento\Framework\Model\AbstractModel implements MenuInterfa
      * Set is active
      *
      * @param int|bool $is_active
-     * @return \Scandi\Menumanager\Api\Data\MenuInterface
+     * @return \Scandiweb\Menumanager\Api\Data\MenuInterface
      */
     public function setIsActive($is_active)
     {

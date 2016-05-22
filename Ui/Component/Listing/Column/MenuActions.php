@@ -1,5 +1,5 @@
 <?php
-namespace Scandi\Menumanager\Ui\Component\Listing\Column;
+namespace Scandiweb\Menumanager\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -7,20 +7,20 @@ use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Ui\Component\Listing\Column
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Ui\Component\Listing\Column
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
  * Class MenuActions
- * @package Scandi\Menumanager\Ui\Component\Listing\Column
+ * @package Scandiweb\Menumanager\Ui\Component\Listing\Column
  */
 class MenuActions extends Column
 {
     /** Url path */
-    const MENU_URL_PATH_EDIT = 'scandi_menumanager/menu/edit';
-    const MENU_URL_PATH_DELETE = 'scandi_menumanager/menu/delete';
+    const MENU_URL_PATH_EDIT = 'scandiweb_menumanager/menu/edit';
+    const MENU_URL_PATH_DELETE = 'scandiweb_menumanager/menu/delete';
 
     /** @var UrlInterface */
     protected $urlBuilder;

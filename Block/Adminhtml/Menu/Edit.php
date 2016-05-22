@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Block\Adminhtml\Menu;
+namespace Scandiweb\Menumanager\Block\Adminhtml\Menu;
 
 use Magento\Backend\Block\Widget\Form\Container;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -43,7 +43,7 @@ class Edit extends Container
     protected function _construct()
     {
         $this->_objectId = 'menu_id';
-        $this->_blockGroup = 'Scandi_Menumanager';
+        $this->_blockGroup = 'Scandiweb_Menumanager';
         $this->_controller = 'adminhtml_menu';
 
         $saveUrl = $this->getUrl('*/*/save', ['_current' => true, 'active_tab' => 'general_section']);
@@ -54,7 +54,7 @@ class Edit extends Container
 
         parent::_construct();
 
-        if ($this->_isAllowedAction('Scandi_Menumanager::navigation_menu_save')) {
+        if ($this->_isAllowedAction('Scandiweb_Menumanager::navigation_menu_save')) {
             $this->buttonList->update('save', 'label', __('Save Menu'));
             $this->buttonList->add(
                 'saveandcontinue',
@@ -76,7 +76,7 @@ class Edit extends Container
             $this->buttonList->remove('save');
         }
 
-        if ($this->_isAllowedAction('Scandi_Menumanager::navigation_menu_delete')) {
+        if ($this->_isAllowedAction('Scandiweb_Menumanager::navigation_menu_delete')) {
             $this->buttonList->update('delete', 'label', __('Delete Menu'));
         } else {
             $this->buttonList->remove('delete');
@@ -90,7 +90,7 @@ class Edit extends Container
      */
     public function getHeaderText()
     {
-        $menu = $this->_coreRegistry->registry('scandi_menumanager_menu');
+        $menu = $this->_coreRegistry->registry('scandiweb_menumanager_menu');
 
         if ($menu->getId()) {
             return __("Edit Menu '%1'", $this->escapeHtml($menu->getTitle()));

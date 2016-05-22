@@ -1,13 +1,13 @@
 <?php
 
-namespace Scandi\Menumanager\Model\Menu\Source;
+namespace Scandiweb\Menumanager\Model\Menu\Source;
 
-use Scandi\Menumanager\Model\Source\AbstractSource;
+use Scandiweb\Menumanager\Model\Source\AbstractSource;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model\Menu\Source
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model\Menu\Source
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *

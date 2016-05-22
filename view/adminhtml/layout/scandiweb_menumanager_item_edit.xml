@@ -1,16 +1,16 @@
 <?xml version="1.0"?><!--
 /**
- * @category Scandi
- * @package Scandi\Menumanager
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  */
 -->
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
     <container name="root" label="Root">
-        <block class="Scandi\Menumanager\Block\Adminhtml\Item\Edit" name="scandi_menumanager_item_edit">
-            <block class="Scandi\Menumanager\Block\Adminhtml\Item\Edit\Form" name="form"/>
+        <block class="Scandiweb\Menumanager\Block\Adminhtml\Item\Edit" name="scandiweb_menumanager_item_edit">
+            <block class="Scandiweb\Menumanager\Block\Adminhtml\Item\Edit\Form" name="form"/>
         </block>
     </container>
 </layout>

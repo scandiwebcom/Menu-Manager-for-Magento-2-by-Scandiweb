@@ -1,12 +1,12 @@
 <?php
-namespace Scandi\Menumanager\Model\ResourceModel;
+namespace Scandiweb\Menumanager\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model\ResourceModel
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model\ResourceModel
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -43,7 +43,7 @@ class Menu extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('scandi_menumanager_menu', 'menu_id');
+        $this->_init('scandiweb_menumanager_menu', 'menu_id');
     }
 
     /**
@@ -95,7 +95,7 @@ class Menu extends AbstractDb
         $select = $this->getConnection()->select()
             ->from(['menu' => $this->getMainTable()])
             ->join(
-                ['menu_stores' => $this->getTable('scandi_menumanager_menu_store')],
+                ['menu_stores' => $this->getTable('scandiweb_menumanager_menu_store')],
                 'menu.menu_id = menu_stores.menu_id',
                 []
             )
@@ -142,7 +142,7 @@ class Menu extends AbstractDb
         $oldStores = $this->lookupStoreIds($object->getId());
         $newStores = (array)$object->getStores();
 
-        $table  = $this->getTable('scandi_menumanager_menu_store');
+        $table  = $this->getTable('scandiweb_menumanager_menu_store');
 
         $insert = array_diff($newStores, $oldStores);
         $delete = array_diff($oldStores, $newStores);
@@ -181,7 +181,7 @@ class Menu extends AbstractDb
         $adapter = $this->getConnection();
 
         $select  = $adapter->select()
-            ->from($this->getTable('scandi_menumanager_menu_store'), 'store_id')
+            ->from($this->getTable('scandiweb_menumanager_menu_store'), 'store_id')
             ->where('menu_id = :menu_id');
 
         $binds = [
@@ -213,7 +213,7 @@ class Menu extends AbstractDb
      *
      * @param string $field
      * @param mixed $value
-     * @param \Scandi\Menumanager\Model\Menu $object
+     * @param \Scandiweb\Menumanager\Model\Menu $object
      * @return \Zend_Db_Select
      */
     protected function _getLoadSelect($field, $value, $object)
@@ -227,7 +227,7 @@ class Menu extends AbstractDb
             ];
 
             $select->join(
-                ['menu_store' => $this->getTable('scandi_menumanager_menu_store')],
+                ['menu_store' => $this->getTable('scandiweb_menumanager_menu_store')],
                 $this->getMainTable() . '.menu_id = menu_store.menu_id',
                 ['store_id']
             )

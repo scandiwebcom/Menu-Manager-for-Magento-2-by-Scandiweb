@@ -1,10 +1,10 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Menu;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Menu;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -12,7 +12,7 @@ namespace Scandi\Menumanager\Controller\Adminhtml\Menu;
  */
 class NewAction extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu_save';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu_save';
 
     /**
      * @var \Magento\Backend\Model\View\Result\Forward

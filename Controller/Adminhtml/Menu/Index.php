@@ -1,13 +1,13 @@
 <?php
-namespace Scandi\Menumanager\Controller\Adminhtml\Menu;
+namespace Scandiweb\Menumanager\Controller\Adminhtml\Menu;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Controller\Adminhtml\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Controller\Adminhtml\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -15,7 +15,7 @@ use Magento\Framework\View\Result\PageFactory;
  */
 class Index extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Scandi_Menumanager::navigation_menu';
+    const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu';
 
     /**
      * @var PageFactory
@@ -43,7 +43,7 @@ class Index extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Scandi_Menumanager::navigation_menu');
+        $resultPage->setActiveMenu('Scandiweb_Menumanager::navigation_menu');
         $resultPage->addBreadcrumb(__('Menu Manager'), __('Menu Manager'));
         $resultPage->addBreadcrumb(__('Manage Menus'), __('Manage Menus'));
         $resultPage->getConfig()->getTitle()->prepend(__('Menu Manager'));

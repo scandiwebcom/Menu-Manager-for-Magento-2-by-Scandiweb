@@ -1,14 +1,14 @@
 <?php
-namespace Scandi\Menumanager\Model\ResourceModel\Menu;
+namespace Scandiweb\Menumanager\Model\ResourceModel\Menu;
 
 use Magento\Store\Model\Store;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Model\ResourceModel\Menu
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Model\ResourceModel\Menu
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -23,7 +23,7 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init('Scandi\Menumanager\Model\Menu', 'Scandi\Menumanager\Model\ResourceModel\Menu');
+        $this->_init('Scandiweb\Menumanager\Model\Menu', 'Scandiweb\Menumanager\Model\ResourceModel\Menu');
     }
 
     /**
@@ -32,7 +32,7 @@ class Collection extends AbstractCollection
      * @param   int | Store $store
      * @param   bool $withAdmin
      *
-     * @return  \Scandi\Menumanager\Model\ResourceModel\Menu\Collection
+     * @return  \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection
      */
     public function addStoreFilter($store, $withAdmin = true)
     {
@@ -56,13 +56,13 @@ class Collection extends AbstractCollection
     /**
      * Join store relation table data if store filter is used
      *
-     * @return \Scandi\Menumanager\Model\ResourceModel\Menu\Collection
+     * @return \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection
      */
     protected function _renderFiltersBefore()
     {
         if ($this->getFilter('store_id')) {
             $this->getSelect()->join(
-                ['store_table' => $this->getTable('scandi_menumanager_menu_store')],
+                ['store_table' => $this->getTable('scandiweb_menumanager_menu_store')],
                 'main_table.menu_id = store_table.menu_id',
                 []
             )->group('main_table.menu_id');

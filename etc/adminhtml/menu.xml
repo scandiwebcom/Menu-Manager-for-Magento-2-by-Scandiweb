@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!--
 /**
- * @category Scandi
- * @package Scandi\Menumanager
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Scandi_Menumanager::navigation" title="Navigation" module="Scandi_Menumanager" sortOrder="10" parent="Scandi_Core::all" resource="Scandi_Menumanager::navigation"/>
-        <add id="Scandi_Menumanager::navigation_menu" title="Menu Manager" module="Scandi_Menumanager" sortOrder="10" parent="Scandi_Menumanager::navigation" action="scandi_menumanager/menu/index" dependsOnModule="Scandi_Core" resource="Scandi_Menumanager::navigation_menu"/>
+        <add id="Scandiweb_Menumanager::navigation" title="Navigation" module="Scandiweb_Menumanager" sortOrder="10" parent="Scandiweb_Core::all" resource="Scandiweb_Menumanager::navigation"/>
+        <add id="Scandiweb_Menumanager::navigation_menu" title="Menu Manager" module="Scandiweb_Menumanager" sortOrder="10" parent="Scandiweb_Menumanager::navigation" action="scandiweb_menumanager/menu/index" dependsOnModule="Scandiweb_Core" resource="Scandiweb_Menumanager::navigation_menu"/>
     </menu>
 </config>

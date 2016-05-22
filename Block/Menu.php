@@ -1,5 +1,5 @@
 <?php
-namespace Scandi\Menumanager\Block;
+namespace Scandiweb\Menumanager\Block;
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\View\Element\Template;
@@ -11,9 +11,9 @@ use Magento\Store\Model\StoreManager;
 use Magento\Framework\Registry;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Block
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Block
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -56,10 +56,10 @@ class Menu extends Template implements IdentityInterface
     protected $_nodeFactory;
 
     protected $_menuItemCollection;
-    protected $_menuItemCollectionClass = \Scandi\Menumanager\Model\ResourceModel\Item\Collection::class;
+    protected $_menuItemCollectionClass = \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection::class;
 
     protected $_menuModel;
-    protected $_menuCollectionClass = \Scandi\Menumanager\Model\ResourceModel\Menu\Collection::class;
+    protected $_menuCollectionClass = \Scandiweb\Menumanager\Model\ResourceModel\Menu\Collection::class;
 
     /**
      * Core registry
@@ -603,7 +603,7 @@ class Menu extends Template implements IdentityInterface
     }
 
     /**
-     * @return \Scandi\Menumanager\Model\ResourceModel\Item\Collection
+     * @return \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
      */
     protected function _getMenuItemCollection()
     {
@@ -611,7 +611,7 @@ class Menu extends Template implements IdentityInterface
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
             /**
-             * @var $collection \Scandi\Menumanager\Model\ResourceModel\Item\Collection
+             * @var $collection \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
              */
             $collection = $objectManager->create($this->_menuItemCollectionClass);
             $collection->addMenuFilter($this->_menuModel);
@@ -623,7 +623,7 @@ class Menu extends Template implements IdentityInterface
     }
 
     /**
-     * @return bool | \Scandi\Menumanager\Model\ResourceModel\Menu
+     * @return bool | \Scandiweb\Menumanager\Model\ResourceModel\Menu
      */
     public function initMenu()
     {

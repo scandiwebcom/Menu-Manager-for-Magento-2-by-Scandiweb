@@ -1,5 +1,5 @@
 <?php
-namespace Scandi\Menumanager\Setup;
+namespace Scandiweb\Menumanager\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -7,9 +7,9 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
 
 /**
- * @category Scandi
- * @package Scandi\Menumanager\Setup
- * @author Dmitrijs Sitovs <dmitrijssh@majaslapa.lv / dsitovs@gmail.com>
+ * @category Scandiweb
+ * @package Scandiweb\Menumanager\Setup
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
  * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
  * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
  *
@@ -39,7 +39,7 @@ class InstallSchema implements InstallSchemaInterface
     }
 
     /**
-     * Create table "scandi_menumanager_menu_store"
+     * Create table "scandiweb_menumanager_menu_store"
      *
      * @param SchemaSetupInterface $setup
      *
@@ -48,7 +48,7 @@ class InstallSchema implements InstallSchemaInterface
     protected function _installMenuTable(SchemaSetupInterface $setup)
     {
         $table = $setup->getConnection()
-            ->newTable($setup->getTable('scandi_menumanager_menu'))
+            ->newTable($setup->getTable('scandiweb_menumanager_menu'))
             ->addColumn(
                 'menu_id',
                 Table::TYPE_SMALLINT,
@@ -84,11 +84,11 @@ class InstallSchema implements InstallSchemaInterface
                 'Is Menu Active?'
             )
             ->addIndex(
-                $setup->getIdxName('scandi_menumanager_menu', ['identifier']),
+                $setup->getIdxName('scandiweb_menumanager_menu', ['identifier']),
                 ['identifier']
             )
             ->addIndex(
-                $setup->getIdxName('scandi_menumanager_menu', ['menu_id']),
+                $setup->getIdxName('scandiweb_menumanager_menu', ['menu_id']),
                 ['menu_id']
             )
             ->setComment('Scandi Menumanager Menus');
@@ -97,7 +97,7 @@ class InstallSchema implements InstallSchemaInterface
     }
 
     /**
-     * Create table "scandi_menumanager_item"
+     * Create table "scandiweb_menumanager_item"
      *
      * @param SchemaSetupInterface $setup
      */
@@ -106,7 +106,7 @@ class InstallSchema implements InstallSchemaInterface
         $installer = $setup;
 
         $table = $installer->getConnection()
-            ->newTable($installer->getTable('scandi_menumanager_item'))
+            ->newTable($installer->getTable('scandiweb_menumanager_item'))
             ->addColumn(
                 'item_id',
                 Table::TYPE_INTEGER,
@@ -192,7 +192,7 @@ class InstallSchema implements InstallSchemaInterface
                 'Is Menu Active?'
             )
             ->addIndex(
-                $installer->getIdxName('scandi_menumanager_item', ['identifier']),
+                $installer->getIdxName('scandiweb_menumanager_item', ['identifier']),
                 ['identifier']
             )
             ->setComment('Scandi Menumanager Menu Items');
@@ -201,7 +201,7 @@ class InstallSchema implements InstallSchemaInterface
     }
 
     /**
-     * Create table "scandi_menumanager_menu_store"
+     * Create table "scandiweb_menumanager_menu_store"
      *
      * @param SchemaSetupInterface $setup
      */
@@ -213,7 +213,7 @@ class InstallSchema implements InstallSchemaInterface
 
         $table = $connection
             ->newTable(
-                $installer->getTable('scandi_menumanager_menu_store')
+                $installer->getTable('scandiweb_menumanager_menu_store')
             )
             ->addColumn(
                 'menu_id',
@@ -230,11 +230,11 @@ class InstallSchema implements InstallSchemaInterface
                 'Store ID'
             )
             ->addIndex(
-                $installer->getIdxName('scandi_menumanager_menu_store', ['store_id']),
+                $installer->getIdxName('scandiweb_menumanager_menu_store', ['store_id']),
                 ['store_id']
             )
             ->addIndex(
-                $installer->getIdxName('scandi_menumanager_menu_store', ['menu_id']),
+                $installer->getIdxName('scandiweb_menumanager_menu_store', ['menu_id']),
                 ['menu_id']
             )
             ->setComment('MenuManager Menu To Store Linkage Table');
@@ -258,14 +258,14 @@ class InstallSchema implements InstallSchemaInterface
          */
         $connection->addForeignKey(
             $installer->getFkName(
-                'scandi_menumanager_item',
+                'scandiweb_menumanager_item',
                 'menu_id',
-                'scandi_menumanager_menu',
+                'scandiweb_menumanager_menu',
                 'menu_id'
             ),
-            $installer->getTable('scandi_menumanager_item'),
+            $installer->getTable('scandiweb_menumanager_item'),
             'menu_id',
-            $installer->getTable('scandi_menumanager_menu'),
+            $installer->getTable('scandiweb_menumanager_menu'),
             'menu_id',
             Table::ACTION_CASCADE
         );
@@ -275,12 +275,12 @@ class InstallSchema implements InstallSchemaInterface
          */
         $connection->addForeignKey(
             $installer->getFkName(
-                'scandi_menumanager_item',
+                'scandiweb_menumanager_item',
                 'category_id',
                 'catalog_category_entity',
                 'entity_id'
             ),
-            $installer->getTable('scandi_menumanager_item'),
+            $installer->getTable('scandiweb_menumanager_item'),
             'category_id',
             $installer->getTable('catalog_category_entity'),
             'entity_id',
@@ -292,12 +292,12 @@ class InstallSchema implements InstallSchemaInterface
          */
         $connection->addForeignKey(
             $installer->getFkName(
-                'scandi_menumanager_item',
+                'scandiweb_menumanager_item',
                 'cms_page_identifier',
                 'cms_page',
                 'identifier'
             ),
-            $installer->getTable('scandi_menumanager_item'),
+            $installer->getTable('scandiweb_menumanager_item'),
             'cms_page_identifier',
             $installer->getTable('cms_page'),
             'identifier',
@@ -309,26 +309,26 @@ class InstallSchema implements InstallSchemaInterface
          */
         $connection->addForeignKey(
             $installer->getFkName(
-                'scandi_menumanager_menu_store',
+                'scandiweb_menumanager_menu_store',
                 'menu_id',
-                'scandi_menumanager_menu',
+                'scandiweb_menumanager_menu',
                 'menu_id'
             ),
-            $installer->getTable('scandi_menumanager_menu_store'),
+            $installer->getTable('scandiweb_menumanager_menu_store'),
             'menu_id',
-            $installer->getTable('scandi_menumanager_menu'),
+            $installer->getTable('scandiweb_menumanager_menu'),
             'menu_id',
             Table::ACTION_CASCADE
         );
 
         $connection->addForeignKey(
             $installer->getFkName(
-                'scandi_menumanager_menu_store',
+                'scandiweb_menumanager_menu_store',
                 'store_id',
                 'store',
                 'store_id'
             ),
-            $installer->getTable('scandi_menumanager_menu_store'),
+            $installer->getTable('scandiweb_menumanager_menu_store'),
             'store_id',
             $installer->getTable('store'),
             'store_id',
