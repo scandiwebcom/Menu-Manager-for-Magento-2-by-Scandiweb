@@ -82,6 +82,18 @@ class Collection extends AbstractCollection
     }
 
     /**
+     * set order by parent id
+     *
+     * @return \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
+     */
+    public function setParentIdOrder()
+    {
+        $this->setOrder('parent_id', 'asc');
+
+        return $this;
+    }
+
+    /**
      * @param $itemId
      *
      * @return $this
