@@ -513,7 +513,9 @@ class Menu extends Template implements IdentityInterface
      */
     protected function _fillMenuTree()
     {
-        $collection = $this->_getMenuItemCollection();
+        $collection = $this->_getMenuItemCollection()
+            ->setParentIdOrder()
+            ->setPositionOrder();
 
         if (!$collection->count()) {
             return false;

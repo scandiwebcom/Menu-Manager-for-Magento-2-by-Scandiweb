@@ -1,6 +1,9 @@
 Scandiweb_Menumanager changelog
 ========================
 
+0.1.3:
+- Fixed menu item order output
+
 0.1.2:
 - Fixed filters for assigned menu item grid
 
