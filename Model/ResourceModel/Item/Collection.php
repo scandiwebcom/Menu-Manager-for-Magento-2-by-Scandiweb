@@ -88,7 +88,7 @@ class Collection extends AbstractCollection
      */
     public function setParentIdOrder()
     {
-        $this->setOrder('parent_id' 'asc');
+        $this->setOrder('parent_id', 'asc');
 
         return $this;
     }

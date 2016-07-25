@@ -14,7 +14,7 @@ composer require scandiweb/module-core:"dev-master as 0.1.0"
 
 ```
 composer config repositories.module-menumanager git git@bitbucket.org:scandiwebassets/menu-manager-2.git
-composer require scandiweb/module-menumanager:0.1.3
+composer require scandiweb/module-menumanager:0.1.4
 php -f bin/magento setup:upgrade
 ```
 

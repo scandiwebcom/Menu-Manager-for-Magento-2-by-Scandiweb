@@ -203,7 +203,7 @@ class Item extends AbstractModel implements ItemInterface, IdentityInterface
      */
     public function setCategoryId($categoryId)
     {
-        return $this->getData(self::CATEGORY_ID, $categoryId);
+        return $this->setData(self::CATEGORY_ID, $categoryId);
     }
 
     /**

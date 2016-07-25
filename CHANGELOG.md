@@ -1,6 +1,10 @@
 Scandiweb_Menumanager changelog
 ========================
 
+0.1.4:
+- Fixed category setter
+- Fixed item collection order method
+
 0.1.3:
 - Fixed menu item order output
 
