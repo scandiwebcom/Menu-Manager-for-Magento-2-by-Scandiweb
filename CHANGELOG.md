@@ -1,6 +1,10 @@
 Scandiweb_Menumanager changelog
 ========================
 
+0.1.5:
+- Fixed joinUrlRewrite() fatal error for category collection when 
+ flat category table is enabled
+
 0.1.4:
 - Fixed category setter
 - Fixed item collection order method

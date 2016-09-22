@@ -9,6 +9,7 @@ use Magento\Framework\Data\Tree\NodeFactory;
 use Magento\Cms\Helper\Page;
 use Magento\Store\Model\StoreManager;
 use Magento\Framework\Registry;
+use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory;
 
 /**
  * @category Scandiweb
@@ -71,6 +72,7 @@ class Menu extends Template implements IdentityInterface
     protected $_currentUrlPath;
     protected $_baseUrlPath;
     protected $_currentCategoryUrlPath;
+    protected $_collectionFactory;
 
     /**
      * @param Template\Context $context
@@ -89,6 +91,7 @@ class Menu extends Template implements IdentityInterface
         Page $cmsPageHelper,
         StoreManager $storeManager,
         Registry $registry,
+        CollectionFactory $categoryCollectionFactory,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -106,6 +109,7 @@ class Menu extends Template implements IdentityInterface
         $this->_coreRegistry = $registry;
         $this->_currentUrlPath = $this->_getTrimmedPath($this->_urlBuilder->getCurrentUrl());
         $this->_baseUrlPath = $this->_getTrimmedPath($this->_urlBuilder->getBaseUrl());
+        $this->_collectionFactory = $categoryCollectionFactory;
 
         if ($currentCategory = $this->_getCurrentCategory()) {
             $this->_currentCategoryUrlPath = $this->_getTrimmedPath($currentCategory->getUrl());
@@ -561,17 +565,14 @@ class Menu extends Template implements IdentityInterface
      */
     protected function _fillCategoryData(array $nodes)
     {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $categoryItemIds = $this->_categoryItemIds;
 
-        $categoryModel = $objectManager->create('\Magento\Catalog\Model\Category');
-        $collection = $categoryModel->getCollection();
-
+        $collection = $this->_collectionFactory->create();
         $collection->addAttributeToSelect('url_key')
             ->addAttributeToSelect('name')
             ->addAttributeToFilter('is_active', 1)
             ->addIdFilter($categoryItemIds)
-            ->joinUrlRewrite();
+            ->addUrlRewriteToResult();
 
         /**
          * [$categoryId => $categoryData]
