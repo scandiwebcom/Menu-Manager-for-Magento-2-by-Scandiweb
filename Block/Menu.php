@@ -617,7 +617,9 @@ class Menu extends Template implements IdentityInterface
              * @var $collection \Scandiweb\Menumanager\Model\ResourceModel\Item\Collection
              */
             $collection = $objectManager->create($this->_menuItemCollectionClass);
-            $collection->addMenuFilter($this->_menuModel);
+            $collection->addMenuFilter($this->_menuModel)
+                ->setPositionOrder()
+                ->addStatusFilter();
 
             $this->_menuItemCollection = $collection;
         }

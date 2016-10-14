@@ -80,7 +80,8 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                 'header' => __('Item Title'),
                 'type' => 'text',
                 'index' => 'title',
-                'escape' => true
+                'escape' => true,
+                'filter_index' => 'main_table.title'
             ]
         );
 
