@@ -101,12 +101,7 @@ class Item extends AbstractDb
     {
         $select = parent::_getLoadSelect($field, $value, $object);
 
-        $select->where(
-            'is_active = ?',
-            1
-        )->limit(
-            1
-        );
+        $select->limit(1);
 
         return $select;
     }
