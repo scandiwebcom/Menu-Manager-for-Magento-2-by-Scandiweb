@@ -20,7 +20,7 @@ php -f bin/magento setup:upgrade
 
 ## Configuration
 
-For configuration and more details you can visit [wiki](https://scandiweb.atlassian.net/wiki/display/MAG2/Scandi+Menu+Manager+2.0).
+For configuration and more details you can visit [wiki](https://github.com/scandiwebcom/Menu-Manager-for-Magento-2-by-Scandiweb/wiki).
 
 ## Example on how-to add menu to the Magento store
 
