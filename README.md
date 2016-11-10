@@ -8,12 +8,12 @@ Run the following:
 
 *Optional*, run only if "Core" module is not installed yet:
 ```
-composer config repositories.module-core git git@bitbucket.org:scandiwebassets/core.git
+composer config repositories.module-core git https://github.com/scandiwebcom/Scandiweb-Assets-Core.git
 composer require scandiweb/module-core:"dev-master as 0.1.0"
 ```
 
 ```
-composer config repositories.module-menumanager git git@bitbucket.org:scandiwebassets/menu-manager-2.git
+composer config repositories.module-core git https://github.com/scandiwebcom/Menu-Manager-for-Magento-2-by-Scandiweb.git
 composer require scandiweb/module-menumanager:0.1.5
 php -f bin/magento setup:upgrade
 ```
