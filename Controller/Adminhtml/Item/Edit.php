@@ -75,7 +75,6 @@ class Edit extends \Magento\Backend\App\Action
         }
 
         $this->_registry->register('scandiweb_menumanager_item', $item);
-        $this->_registry->register('scandiweb_menumanager_item', $item);
         $this->_registry->register('scandiweb_menumanager_menuId', $menuId);
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
