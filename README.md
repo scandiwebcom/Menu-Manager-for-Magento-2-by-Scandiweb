@@ -43,3 +43,10 @@ So for example, if your Menu Identifier is 'cool-menu':
     </body>
 </page>
 ```
+
+"edit-item-page" branch was created to change functionality how menu items can be changed.
+With opening edit form with ajax popup there are 2 issues:
+1. Sometimes on first page load (clean cache and cookies) ajax is not trigerred and when you click
+on edit link nothing happens, you need to reload page once more.
+2. When you change in pager items qty to show per page, for example, from 20 to 50, for new 30 items 
+ ajax is not triggered and you need to reload page. 

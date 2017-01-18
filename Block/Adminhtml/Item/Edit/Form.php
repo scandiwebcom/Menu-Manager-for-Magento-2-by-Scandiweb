@@ -61,7 +61,7 @@ class Form extends Generic
 
         $this->setFormActionUrl($saveUrl);
         $this->setId('scandiweb_menumanager_item_form');
-        $this->setDestElementId('item_form');
+        $this->setDestElementId('edit_form');
         $this->setTitle(__('Item Information'));
     }
 
@@ -80,7 +80,7 @@ class Form extends Generic
         $form = $this->_formFactory->create(
             [
                 'data' => [
-                    'id' => 'item_form',
+                    'id' => 'edit_form',
                     'action' => $this->getData('action'),
                     'method' => 'post',
                 ]
@@ -127,7 +127,7 @@ class Form extends Generic
                 'name' => 'url',
                 'label' => __('Custom URL'),
                 'title' => __('Custom URL'),
-                'required' => true,
+                'required' => false,
             ]
         );
 
@@ -226,7 +226,7 @@ class Form extends Generic
                 'title' => __('CMS Page'),
                 'values' => $this->_menumanagerHelper->getCmsPagesAsOptions(true),
                 'name' => 'cms_page_identifier',
-                'required' => true
+                'required' => false
             ]
         );
     }

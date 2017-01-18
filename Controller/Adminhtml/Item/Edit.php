@@ -17,9 +17,9 @@ class Edit extends \Magento\Backend\App\Action
     const ADMIN_RESOURCE = 'Scandiweb_Menumanager::navigation_menu_item_save';
 
     /**
-     * @var \Magento\Framework\View\Result\LayoutFactory
+     * @var \Magento\Framework\View\Result\PageFactory
      */
-    protected $resultLayoutFactory;
+    protected $resultPageFactory;
 
     /**
      * Core registry
@@ -37,12 +37,12 @@ class Edit extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $registry,
-        \Magento\Framework\View\Result\LayoutFactory $resultLayoutFactory
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory
     )
     {
         parent::__construct($context);
         $this->_registry = $registry;
-        $this->resultLayoutFactory = $resultLayoutFactory;
+        $this->resultPageFactory = $resultPageFactory;
     }
 
     /**
@@ -52,11 +52,9 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        if (!$this->getRequest()->isAjax()) {
-            return $this->_redirect('*/menu/index');
-        }
 
         $itemId = $this->getRequest()->getParam('item_id');
+        $menuId = $this->getRequest()->getParam('menu_id');
         $item = $this->_objectManager->create('Scandiweb\Menumanager\Model\Item');
 
         if ($itemId) {
@@ -77,11 +75,20 @@ class Edit extends \Magento\Backend\App\Action
         }
 
         $this->_registry->register('scandiweb_menumanager_item', $item);
+        $this->_registry->register('scandiweb_menumanager_item', $item);
+        $this->_registry->register('scandiweb_menumanager_menuId', $menuId);
 
-        $resultLayout = $this->resultLayoutFactory->create();
-        $resultLayout->getLayout()->getBlock('scandiweb_menumanager_item_edit');
+        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('Scandiweb_Menumanager::navigation_menu')
+            ->addBreadcrumb(__('Menu Manager'), __('Menu Manager'))
+            ->addBreadcrumb(__('Edit Item'), __('Edit Item'));
 
-        return $resultLayout;
+        $resultPage->getConfig()->getTitle()->prepend(__('Menumanager Items'));
+        $resultPage->getConfig()->getTitle()
+            ->prepend(__('Edit Item'));
+
+        return $resultPage;
     }
 
     /**

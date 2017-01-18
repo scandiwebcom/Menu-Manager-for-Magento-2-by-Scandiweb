@@ -142,7 +142,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
                             'params' => ['menu_id' => $this->getRequest()->getParam('menu_id')]
                         ],
                         'field' => 'item_id',
-                        'class' => 'edit-menu-item',
+                        'class' => 'edit-menu-item-link',
                     ]
                 ],
                 'filter' => false,

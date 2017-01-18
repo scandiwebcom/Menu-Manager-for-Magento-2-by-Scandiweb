@@ -46,10 +46,18 @@ class Edit extends Container
         $this->_blockGroup = 'Scandiweb_Menumanager';
         $this->_controller = 'adminhtml_item';
 
-        $saveUrl = $this->getUrl('*/item/save', ['_current' => true, 'active_tab' => 'item_section']);
+        $saveUrl = $this->getUrl('*/item/save', ['_current' => true]);
         $this->setFormActionUrl($saveUrl);
 
         parent::_construct();
+
+        if ($menuId = $this->_coreRegistry->registry('scandiweb_menumanager_menuId')) {
+            $this->buttonList->update('back', 'onclick',
+                'setLocation(\'' . $this->getUrl('*/menu/edit', ['menu_id' => $menuId]) . '\')');
+        } else {
+            $this->buttonList->update('back', 'onclick',
+                'setLocation(\'' . $this->getUrl('*/*') . '\')');
+        }
     }
 
     /**
