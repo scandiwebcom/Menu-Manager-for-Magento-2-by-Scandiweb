@@ -16,12 +16,13 @@
         <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Assigned Menu Items')?></span></legend>
         <br />
         <?php if ($this->canShowItemGrid()): ?>
-            <div class="new-item-link no-display">
-                <a id="add-new-item" class="edit-menu-item" href="<?php echo $block->getNewItemUrl(); ?>"><?php echo __('Add New Item'); ?></a>
-            </div>
             <div id="regular-category-settings" class="regular-category-settings">
                 <div class="actions">
-                    <?php echo $block->getChildHtml('add_items_button') ?>
+                    <button id="scandiweb_menumanager_add_item" class="action-default scalable secondary edit-menu-item"
+                            title="Add Item" type="button" onclick="setLocation('<?php echo $block->getNewItemUrl(); ?>'); return false;"
+                            data-ui-id="scandiweb-menumanager-add-items-button">
+                        <span><?php echo __('Add Item') ?></span>
+                    </button>
                 </div>
                 <a href="<?php echo $block->getUrl(); ?>"></a>
             </div>
@@ -36,10 +37,3 @@
         <?php endif; ?>
     </fieldset>
 </div>
-<script type="text/x-magento-init">
-    {
-        "*": {
-            "Scandiweb_Menumanager/item-actions-handler": {}
-        }
-    }
-</script>

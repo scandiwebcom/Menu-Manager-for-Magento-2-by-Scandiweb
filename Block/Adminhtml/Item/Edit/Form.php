@@ -211,7 +211,7 @@ class Form extends Generic
                 'title' => __('Category'),
                 'values' => $this->_menumanagerHelper->getCategoriesAsOptions(true),
                 'name' => 'category_id',
-                'required' => true
+                'required' => false
             ]
         );
     }
