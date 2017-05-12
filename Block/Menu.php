@@ -200,7 +200,7 @@ class Menu extends Template implements IdentityInterface
             $child->setIsLast($counter == $childrenCount);
             $child->setPositionClass($itemPositionClassPrefix . $counter);
             $child->setIsActiveUrl($this->_hasCurrentUrl($child));
-            $child->setType($child->getOpenType() === 0 ? 'target="_blank"' : '');
+            $child->setType($child->getOpenType() == 1 ? 'target="_blank"' : '');
 
             $outermostClassCode = '';
             $outermostClass = $menuTree->getOutermostClass();
@@ -215,9 +215,9 @@ class Menu extends Template implements IdentityInterface
             }
 
             $html .= '<li ' . $this->_getRenderedMenuItemAttributes($child) . '>';
-            $html .= '<a href="' . $child->getFullUrl() . '" ' . $outermostClassCode . '><span>' . $this->escapeHtml(
-                    $child->getTitle()
-                ) . '</span></a>' . $this->_addSubMenu(
+            $html .= '<a href="' . $child->getFullUrl() . '" ' . $outermostClassCode . $child->getType() . '><span>'
+                . $this->escapeHtml($child->getTitle()) . '</span></a>'
+                . $this->_addSubMenu(
                     $child,
                     $childLevel,
                     $childrenWrapClass,
