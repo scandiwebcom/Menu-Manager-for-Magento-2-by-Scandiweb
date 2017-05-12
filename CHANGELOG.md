@@ -1,6 +1,12 @@
 Scandiweb_Menumanager changelog
 ========================
 
+0.1.7:
+- Fixed menu items with open type "New Window" not opening in a new window
+
+0.1.6:
+- Fixed items filtering by title and added filter by status for items collection
+
 0.1.5:
 - Fixed joinUrlRewrite() fatal error for category collection when 
  flat category table is enabled

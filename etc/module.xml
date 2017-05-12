@@ -9,7 +9,7 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Scandiweb_Menumanager" setup_version="0.1.5">
+    <module name="Scandiweb_Menumanager" setup_version="0.1.7">
         <sequence>
             <module name="Scandiweb_Core"/>
         </sequence>
