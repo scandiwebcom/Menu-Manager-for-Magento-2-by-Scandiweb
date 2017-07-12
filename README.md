@@ -14,7 +14,7 @@ composer require scandiweb/module-core:"dev-master as 0.1.0"
 
 ```
 composer config repositories.module-menumanager git https://github.com/scandiwebcom/Menu-Manager-for-Magento-2-by-Scandiweb.git
-composer require scandiweb/module-menumanager:0.1.7
+composer require scandiweb/module-menumanager:0.1.8
 php -f bin/magento setup:upgrade
 ```
 
@@ -24,7 +24,12 @@ For configuration and more details you can visit [wiki](https://github.com/scand
 
 ## Example on how-to add menu to the Magento store
 
-You will need to update your theme’s default.xml in order to replace the main navigation with the newly created menu. In  default.xml please add the following (replace “identifier” parameter with your Menu Identifier):
+By default layout update is done in the module's view/frontend/layout/default.xml.
+
+If you want to customize it in the theme you are using:
+
+ - you will need to update your theme’s default.xml in order to replace the main navigation with the newly created menu; 
+ - in  default.xml please add the following (replace “identifier” parameter with your Menu Identifier):
 
 So for example, if your Menu Identifier is 'cool-menu':
 
@@ -32,14 +37,16 @@ So for example, if your Menu Identifier is 'cool-menu':
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <move element="custom.topnav" destination="store.menu" after=""/>
-        <referenceContainer name="page.top">
-            <block class="Scandiweb\Menumanager\Block\Menu" name="custom.navigation" template="html/menu.phtml" ttl="3600">
+        <referenceBlock name="catalog.topnav" remove="true"/>
+        <referenceBlock name="store.menu">
+            <block class="Scandiweb\Menumanager\Block\Menu" name="custom.navigation" template="html/menu.phtml" before="-" ttl="3600">
                 <arguments>
                     <argument name="identifier" xsi:type="string">cool-menu</argument>
                 </arguments>
             </block>
-        </referenceContainer>
+        </referenceBlock>
     </body>
 </page>
 ```
+
+- if default.xml in the theme is using - please remove dafult.xml inside the module.
