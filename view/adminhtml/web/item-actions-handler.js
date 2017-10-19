@@ -13,7 +13,7 @@ define([
     'use strict';
 
     return {
-        $targetElement: $('.edit-menu-item'),
+        targetElement: '.edit-menu-item',
         $urlTypeElement: '[data-action=menu-item-url-type]',
         $formId: '#item_form',
         options: {
@@ -37,7 +37,7 @@ define([
         initActions: function () {
             var self = this;
 
-            this.$targetElement.on('click', function (evt) {
+            $(document).on('click', this.targetElement, function (evt) {
                 self.stopEvent(evt);
 
                 var requestUrl = $(this).attr('href');

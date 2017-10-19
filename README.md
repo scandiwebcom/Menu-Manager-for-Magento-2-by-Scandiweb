@@ -14,7 +14,7 @@ composer require scandiweb/module-core:"dev-master as 0.1.0"
 
 ```
 composer config repositories.module-menumanager git https://github.com/scandiwebcom/Menu-Manager-for-Magento-2-by-Scandiweb.git
-composer require scandiweb/module-menumanager:0.1.8
+composer require scandiweb/module-menumanager:0.1.9
 php -f bin/magento setup:upgrade
 ```
 
