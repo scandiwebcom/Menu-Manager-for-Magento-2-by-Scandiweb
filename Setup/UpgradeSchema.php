@@ -76,7 +76,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
             $this->createMenuItem('menu-item-1', 'Menu item 1', $id);
             $this->createMenuItem('menu-item-2', 'Menu item 2', $id);
             $this->createMenuItem('scandiweb', 'Scandiweb', $id);
-            $this->activateMenu($id);
+            $this->activateMenu($setup, $id);
         }
 
         $setup->endSetup();
@@ -127,10 +127,11 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
     /**
      * @param $id
+     * @param $setup
      */
-    public function activateMenu($id) {
-        $tableName = 'scandiweb_menumanager_menu_store';
-        $mainTable = 'scandiweb_menumanager_menu';
+    public function activateMenu($setup, $id) {
+        $tableName = $setup->getTable('scandiweb_menumanager_menu_store');
+        $mainTable = $setup->getTable('scandiweb_menumanager_menu');
         $connection = ObjectManager::getInstance()->get('Magento\Framework\App\ResourceConnection')->getConnection();
         $sql = "INSERT INTO " . $tableName . " (menu_id, store_id) values 
                 ((select menu_id from " . $mainTable . " where " . $mainTable .".menu_id = " . $id . "), 0)";
