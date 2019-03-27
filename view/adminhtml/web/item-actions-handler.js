@@ -106,10 +106,12 @@ define([
         _openDialogWindow: function (data, elementId) {
             var self = this;
 
+            var wrappedData = '<div id="">'+data+'</div>';
+
             if (this.modal) {
-                this.modal.html($(data).html());
+                this.modal.html($(wrappedData).html());
             } else {
-                this.modal = $(data).modal({
+                this.modal = $(wrappedData).modal({
                     title: $.mage.__('Edit Item'),
                     modalClass: 'menu_item',
                     type: 'slide',
